@@ -1,4 +1,5 @@
 
+import './css/styles.css';
 import axios from "axios";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from "simplelightbox";
@@ -9,9 +10,9 @@ const API_KEY = "33728140-6d449e6dc3a2e27338f719f68";
 const URL = "https://pixabay.com/api/";
 const STORAGE_KEY = "search-form-state";
 
-const searchFormEl = document.querySelector('.search-form');
-const searchBtnEl = document.querySelector('button');
-const loadBtnEl = document.querySelector('.load-more');
+const searchFormEl = document.querySelector('#search-form');
+const searchBtnEl = searchFormEl.querySelector('button');
+const loadBtnEl = document.querySelector('[type="button"]');
 const galleryItems = document.querySelector('.gallery');
 
 let searchPage = 1;
@@ -70,12 +71,12 @@ async function getImg() {
       Notify.failure("We're sorry, but you've reached the end of search results.");
       loadBtnEl.classList.add("hidden");
       return;
-    } 
+    }
   
     loadBtnEl.classList.remove("hidden");
     searchPage += 1;
     } catch (error) {
-        console.error(error); 
+        console.error(error);
     }
 }
 
@@ -101,7 +102,8 @@ function renderImages(imagesArray) {
       </div>
       </a>`
     }).join("");
-     galleryItems.insertAdjacentHTML("beforeend", markup);
+  
+    galleryItems.insertAdjacentHTML("beforeend", markup);
     let gallery = new SimpleLightbox(".gallery__item");
     gallery.refresh();
 
@@ -129,3 +131,4 @@ function cleanImages() {
   localStorage.removeItem(STORAGE_KEY);
   searchPage = 1;
 }
+
