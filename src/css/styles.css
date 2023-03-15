@@ -34,10 +34,54 @@ button {
 }
 
 .gallery {
-    padding: 16px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 16px;
+    max-width: 1140px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-auto-rows: 240px;
+    grid-gap: 12px;
+    justify-content: center;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.gallery__item {
+    position: relative;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    color: inherit;
+    font-size: 15px;
+}
+
+.gallery__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.info {
+    width: 100%;
+    height: 30%;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: #fafafa;
+
+
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .photo-card {
@@ -45,18 +89,23 @@ button {
 }
 
 .photo-card img {
-    max-height: 250px;
-    max-width: 250px;
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }
 
 .info {
-    padding-left: 16px;
-    padding-right: 16px;
-    font-size: 12px;
+    width: 100%;
+    height: 30%;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    bottom: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 12px;
+    flex-direction: row;
+    gap: 5px;
+    background-color: #fafafa;
+
 }
 
 .info-item {
@@ -66,7 +115,6 @@ button {
 
 .load-more {
     display: none;
-    /* display: block; */
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 20px;
